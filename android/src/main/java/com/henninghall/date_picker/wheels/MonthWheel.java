@@ -34,7 +34,7 @@ public class MonthWheel extends Wheel
 
     @Override
     public boolean wrapSelectorWheel() {
-        return true;
+        return false;
     }
 
     @Override
@@ -44,13 +44,15 @@ public class MonthWheel extends Wheel
 
     @Override
     public Paint.Align getTextAlign() {
-        return Paint.Align.CENTER;
+        return Paint.Align.LEFT;
     }
 
+    /*
     @Override
     public int getHorizontalPadding() {
         return 1;
     }
+     */
 
 
 }

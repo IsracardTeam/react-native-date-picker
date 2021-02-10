@@ -10,6 +10,7 @@ import com.henninghall.date_picker.models.WheelType;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
 
 import static com.henninghall.date_picker.models.Is24HourSource.*;
 
@@ -59,7 +60,10 @@ public class DerivedData {
     }
 
     private ArrayList<WheelType> getOrderedWheels() {
-        String dateTimePatternOld = LocaleUtils.getDateTimePattern(state.getLocale());
+        // We'll override this to ALWAYS return y MMMM d
+        Locale fixedLocale = org.apache.commons.lang3.LocaleUtils.toLocale("en");
+
+        String dateTimePatternOld = "EEEE y MMMM d h:mm:ss a zzzz"; // LocaleUtils.getDateTimePattern(state.getLocale());
         String dateTimePattern = dateTimePatternOld.replaceAll("\\('(.+?)'\\)","\\${$1}")
                 .replaceAll("'.+?'","")
                 .replaceAll("\\$\\{(.+?)\\}","('$1')");

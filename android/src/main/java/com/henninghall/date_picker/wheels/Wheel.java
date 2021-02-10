@@ -120,7 +120,7 @@ public abstract class Wheel {
         return getString(cal, this.state.getLocale());
     }
 
-    private String getString(Calendar cal, Locale locale){
+    String getString(Calendar cal, Locale locale){
         return getFormat(locale).format(cal.getTime());
     }
 
